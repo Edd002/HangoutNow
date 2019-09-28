@@ -1,4 +1,4 @@
-import { TodoModalComponent } from './todo-modal/todo-modal.component';
+import { EncontrosModalComponent } from './tabs/encontros-modal/encontros-modal.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -10,16 +10,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-
 @NgModule({
-  declarations: [AppComponent, TodoModalComponent],
-  entryComponents: [ TodoModalComponent],
+  declarations: [AppComponent, EncontrosModalComponent],
+  entryComponents: [ EncontrosModalComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-   
-
   ],
   providers: [
     StatusBar,

@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
+
 export class AppComponent {
   public appPages = [
     {
@@ -16,25 +17,34 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-
-    {
-      title: 'Todo List',
-      url: '/todo-list',
-      icon: 'checkbox-outline'
-    },
-    {
-      title: 'Single Image View',
-      url: '/single-image-view',
+      title: 'Meus Encontros',
+      url: '/meus-encontros',
       icon: 'list-box'
     },
     {
-      title: 'Messenger',
-      url: '/messenger',
+      title: 'Encontros Disponíveis',
+      url: '/encontros-disponiveis',
+      icon: 'list'
+    },
+    {
+      title: 'Encontros Confirmados',
+      url: '/encontros-confirmados',
+      icon: 'checkbox-outline'
+    },
+    {
+      title: 'Encontros no Mapa',
+      url: '/encontros-mapa',
+      icon: 'map'
+    },
+    {
+      title: 'Conversar com Amigos',
+      url: '/conversar-amigos',
       icon: 'chatboxes'
+    },
+    {
+      title: 'Perfil',
+      url: '/perfil',
+      icon: 'person'
     }
   ];
 
