@@ -89,7 +89,6 @@ ion-card-title{
 }
 
 ion-icon{
- 
   margin-top:10px;
 }
 
@@ -114,10 +113,9 @@ ion-button{
 --padding-start: 17px; 
 --padding-top:17px; 
 --ripple-color :#FFF;
---color-activated :#FFF ;
+--color-activated :#FFF;
 
 margin:20px;
-
 }
 
 ion-list-header{
@@ -156,6 +154,7 @@ ion-card-title{
 }
 
 ion-label{
+  //color: #3880ff !important;
   letter-spacing:0.05em;
 }
 
@@ -183,9 +182,6 @@ ion-input{
   position:inherit;
   top:0px;
   padding:5px;
-  
-
- 
 }
 
 ion-toolbar{
@@ -222,12 +218,10 @@ ion-toolbar{
 }
 
   ion-label.small-label{
- padding:15px;
-
+    padding:15px;
     font-size:24px;
     text-transform:capitalize;
   }
-
 
   ion-segment {
     display:inline-block;
@@ -272,7 +266,6 @@ ion-toolbar{
   .detailViewTitle{
     position: relative;
     top:0px;
-
   }
 
   .singleViewContent{
@@ -283,19 +276,17 @@ ion-toolbar{
     position:relative;
     top: 30px;
     padding:10px;
-
   }
 
   /* Bottom right text */
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-}
+  .bottom-right {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+  }
 
 .top-left{
   position: absolute;
   top: 0px;
   left: 10px;
-
 }

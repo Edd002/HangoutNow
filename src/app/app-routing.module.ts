@@ -9,13 +9,13 @@ const routes: Routes = [
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule'},
   { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule'},
-  { path: 'home', loadChildren: './tabs/home/home.module#HomePageModule'},
-  { path: 'meus-encontros', loadChildren: './tabs/meus-encontros/meus-encontros.module#MeusEncontrosPageModule' },
-  { path: 'encontros-disponiveis', loadChildren: './tabs/encontros-disponiveis/encontros-disponiveis.module#EncontrosDisponiveisPageModule' },
-  { path: 'encontros-confirmados', loadChildren: './tabs/encontros-confirmados/encontros-confirmados.module#EncontrosConfirmadosPageModule' },
-  { path: 'encontros-mapa', loadChildren: './tabs/encontros-mapa/encontros-mapa.module#EncontrosMapaPageModule' },
-  { path: 'conversar-amigos', loadChildren: './tabs/conversar-amigos/conversar-amigos.module#ConversarAmigosPageModule' },
-  { path: 'perfil', loadChildren: './tabs/perfil/perfil.module#PerfilPageModule'}
+  { path: 'tab-home', loadChildren: './tabs/tab-home/tab-home.module#TabHomePageModule'},
+  { path: 'tab-meus-encontros', loadChildren: './tabs/tab-meus-encontros/tab-meus-encontros.module#TabMeusEncontrosPageModule' },
+  { path: 'tab-encontros-disponiveis', loadChildren: './tabs/tab-encontros-disponiveis/tab-encontros-disponiveis.module#TabEncontrosDisponiveisPageModule' },
+  { path: 'tab-encontros-confirmados', loadChildren: './tabs/tab-encontros-confirmados/tab-encontros-confirmados.module#TabEncontrosConfirmadosPageModule' },
+  { path: 'tab-encontros-mapa', loadChildren: './tabs/tab-encontros-mapa/tab-encontros-mapa.module#TabEncontrosMapaPageModule' },
+  { path: 'tab-conversar-amigos', loadChildren: './tabs/tab-conversar-amigos/tab-conversar-amigos.module#TabConversarAmigosPageModule' },
+  { path: 'tab-perfil', loadChildren: './tabs/tab-perfil/tab-perfil.module#TabPerfilPageModule'}
 ];
 
 @NgModule({

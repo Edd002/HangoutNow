@@ -1,0 +1,56 @@
+<!-- CONTINUAR: CRIAR PÁGINA DE LOGIN, REGISTRO E ABA DE VISUALIZAR PERFIL -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label>Foto de Perfil</ion-label>
+      <ion-label>FOTO</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Usuário</ion-label>
+      <ion-label>PrimeiroNome ÚltimoNome</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Senha</ion-label>
+      <ion-label>************</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>E-mail</ion-label>
+      <ion-label>email@email.com</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefone</ion-label>
+      <ion-label>(99) 99999-9999</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sexo</ion-label>
+      <ion-label>Masculino</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list lines="none">
+    <ion-item class="ion-item-clickable">
+      <ion-icon slot="start" color="medium" name="contact"></ion-icon>
+      <ion-label>Foto de Perfil</ion-label>
+    </ion-item>
+    <ion-item class="ion-item-clickable">
+      <ion-icon slot="start" color="medium" name="construct"></ion-icon>
+      <ion-label>Alterar Dados</ion-label>
+    </ion-item>
+    <ion-item class="ion-item-clickable" (click)="goToLogin()">
+      <ion-icon slot="start" color="medium" name="log-out"></ion-icon>
+      <ion-label>Sair</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

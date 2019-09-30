@@ -1,12 +1,10 @@
-<!-- CONTINUAR: TERMINAR A NAVEGAÇÃO E O DESIGN (LIGAR LOGIN E REGISTRAR AO RESTO DO APLICATIVO) -->
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Login
+      Login HangoutNow
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +12,7 @@
 <ion-content>
   <ion-list padding lines="none">
     <ion-list-header>
-      <ion-label>Login HangoutNow</ion-label>
+      <ion-label>HangoutNow</ion-label>
     </ion-list-header>
 
     <ion-item>
@@ -27,11 +25,11 @@
       <ion-input placeholder="Informe a senha"></ion-input>
     </ion-item>
 
-    <ion-button shape="round" expand="full" fill="outline" color="primary">
+    <ion-button shape="round" expand="full" color="dark" (click)="goToHome()">
       Login
     </ion-button>
-    <ion-button shape="round" expand="full" fill="outline" color="primary">
+    <ion-button shape="round" expand="full" color="dark" (click)='goToRegistro()'>
       Registrar
     </ion-button>
-
   </ion-list>
+</ion-content>

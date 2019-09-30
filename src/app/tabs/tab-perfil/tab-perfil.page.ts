@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: 'registro.page.html',
-  styleUrls: ['registro.page.scss'],
+  selector: 'app-tab-perfil',
+  templateUrl: 'tab-perfil.page.html',
+  styleUrls: ['tab-perfil.page.scss'],
 })
-export class RegistroPage {
+export class TabPerfilPage {
 
   constructor(private navCtrl: NavController) {
   }

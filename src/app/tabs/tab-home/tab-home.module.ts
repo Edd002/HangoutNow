@@ -1,15 +1,26 @@
-import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { TabHomePage } from './tab-home.page';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html'
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: TabHomePage
+      }
+    ])
+  ],
+  declarations: [TabHomePage]
 })
-
-export class AppComponent {
+export class TabHomePageModule {
   public appPages = [
     {
       title: 'Home',
@@ -47,19 +58,4 @@ export class AppComponent {
       icon: 'person'
     }
   ];
-
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
-    this.initializeApp();
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
 }

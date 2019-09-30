@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Registro
+        Registrar no HangoutNow
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +12,7 @@
 <ion-content>
   <ion-list padding lines="none">
     <ion-list-header>
-      <ion-label>Registrar no HangoutNow</ion-label>
+      <ion-label>HangoutNow</ion-label>
     </ion-list-header>
 
     <ion-item>
@@ -36,13 +36,19 @@
     </ion-item>
 
     <ion-item>
+      <ion-label position="stacked">Telefone Celular: </ion-label>
+      <ion-input placeholder="Informe o número do telefone celular" mask="(00) 00000-0000"></ion-input>
+    </ion-item>
+
+    <ion-item>
       <ion-label position="stacked">Sexo</ion-label>
       <ion-select placeholder="Selecione o sexo">
-        <ion-select-option> Masculino </ion-select-option>
-        <ion-select-option> Feminino </ion-select-option>
+        <ion-select-option>Masculino</ion-select-option>
+        <ion-select-option>Feminino</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-button shape="round" fill="outline">Cadastrar</ion-button>
-    <ion-button shape="round" fill="outline">Cancelar</ion-button>
+    <ion-button shape="round" expand="full" color="dark">Cadastrar</ion-button>
+    <ion-button shape="round" expand="full" color="dark"(click)='goToLogin()'>Cancelar</ion-button>
+  </ion-list>
 </ion-content>
