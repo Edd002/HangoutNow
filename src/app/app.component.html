@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane>
-    <ion-menu>
+    <ion-menu *ngIf="hasLoggedIn()">
       <ion-header>
         <ion-toolbar>
           <ion-title>Menu</ion-title>
@@ -11,9 +11,9 @@
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
+              <div>
                 {{p.title}}
-              </ion-label>
+              </div>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

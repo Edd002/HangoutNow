@@ -9,6 +9,7 @@ const routes: Routes = [
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule'},
   { path: 'registro', loadChildren: './registro/registro.module#RegistroPageModule'},
+  { path: 'chat', loadChildren: './tabs/chat-room/chat-room.module#ChatRoomPageModule'},
   { path: 'tab-home', loadChildren: './tabs/tab-home/tab-home.module#TabHomePageModule'},
   { path: 'tab-meus-encontros', loadChildren: './tabs/tab-meus-encontros/tab-meus-encontros.module#TabMeusEncontrosPageModule' },
   { path: 'tab-encontros-disponiveis', loadChildren: './tabs/tab-encontros-disponiveis/tab-encontros-disponiveis.module#TabEncontrosDisponiveisPageModule' },

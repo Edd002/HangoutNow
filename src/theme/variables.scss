@@ -78,6 +78,10 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
+hr {
+  background-color: white !important;
+}
+
 ion-card-title{
   color:#9d73ff;
   font-size: 42px;
@@ -86,6 +90,12 @@ ion-card-title{
   -webkit-text-fill-color: transparent;
   letter-spacing:-2px;
  
+}
+
+ion-title {
+  text-align: center !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
 }
 
 ion-icon{
@@ -127,7 +137,8 @@ ion-card{
 }
 
 ion-label{
-  font-size:36px;
+  font-size: 14px !important;
+  /*font-size:36px;*/
   text-transform:capitalize;
 }
 

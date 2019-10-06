@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import { AppService } from './app.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -19,22 +21,22 @@ export class AppComponent {
     {
       title: 'Meus Encontros',
       url: '/tab-meus-encontros',
-      icon: 'list-box'
+      icon: 'contact'
     },
     {
       title: 'Encontros Disponíveis',
       url: '/tab-encontros-disponiveis',
-      icon: 'list'
+      icon: 'search'
     },
     {
       title: 'Encontros Confirmados',
       url: '/tab-encontros-confirmados',
-      icon: 'checkbox-outline'
+      icon: 'checkbox'
     },
     {
       title: 'Encontros no Mapa',
       url: '/tab-encontros-mapa',
-      icon: 'map'
+      icon: 'navigate'
     },
     {
       title: 'Conversar com Amigos',
@@ -44,15 +46,11 @@ export class AppComponent {
     {
       title: 'Perfil',
       url: '/tab-perfil',
-      icon: 'person'
+      icon: 'settings'
     }
   ];
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
+  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar, private appService: AppService) {
     this.initializeApp();
   }
 
@@ -61,5 +59,9 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  hasLoggedIn() {
+    return this.appService.loginState;
   }
 }

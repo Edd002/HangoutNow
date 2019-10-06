@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { EncontrosModalComponent } from '../encontros-modal/encontros-modal.component';
+import { ModalEncontrosConfirmadosComponent } from '../modal-encontros-confirmados/modal-encontros-confirmados.component';
 
 @Component({
   selector: 'app-tab-encontros-confirmados',
@@ -28,7 +28,7 @@ export class TabEncontrosConfirmadosPage implements OnInit {
 
   async openModal(item) {
     const modal = await this.modalController.create({
-      component: EncontrosModalComponent,
+      component: ModalEncontrosConfirmadosComponent,
       componentProps: {
         data: item.description
       }

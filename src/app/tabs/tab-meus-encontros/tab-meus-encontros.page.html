@@ -25,16 +25,49 @@
 
   <div *ngIf="addItemScreen">
     <div class="taskNameContainer">
-      <ion-label class="small-label">Nome do Encontro</ion-label>
-      <ion-input placeholder="O Nome do Seu Encontro" [(ngModel)]="taskName"></ion-input>
+      <div class="small-label">Nome do Encontro</div>
+      <ion-input placeholder="O nome do seu encontro" [(ngModel)]="taskName"></ion-input>
+    </div>
+
+    <ion-button shape="round" expand="full" color="dark">Selecione uma Imagem</ion-button>
+    <ion-img src="/assets/images/1.jpg"></ion-img>
+
+    <div class="taskTimeContainer">
+      <div class="small-label">Horário do Encontro</div>
+      <ion-input placeholder="O horário do seu encontro" [(ngModel)]="taskTime"></ion-input>
+    </div>
+
+    <div class="taskDayContainer">
+      <div class="small-label">Dia do Encontro</div>
+      <ion-img src="/assets/images/calendar.png"></ion-img>
     </div>
 
     <div class="taskDetailsContainer">
-      <ion-label class="small-label">Detalhes do Encontro</ion-label>
-      <ion-textarea placeholder="Os Detalhes do Seu Encontro" [(ngModel)]="taskDetails"></ion-textarea>
+      <div class="small-label">Detalhes do Encontro</div>
+      <ion-textarea placeholder="Os detalhes do seu encontro" [(ngModel)]="taskDetails"></ion-textarea>
     </div>
 
-    <ion-button shape="round" fill="outline" (click)="saveNewItem()">Salvar Encontro</ion-button>
+    <ion-list>
+      <ion-radio-group>
+        <ion-list-header>
+          <div>Quem pode aderir ao encontro?</div>
+        </ion-list-header>
+        <ion-item>
+          <div>Privado (amigos)</div>
+          <ion-radio slot="start" value="Privado" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <div>Público (todos)</div>
+          <ion-radio slot="start" value="Público"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <h4>Qual o local do encontro?</h4>
+    <ion-img src="/assets/images/map2.jpg"></ion-img>
+
+    <ion-button shape="round" expand="full" color="dark" (click)="saveNewItem()">Salvar Encontro</ion-button>
+    <ion-button shape="round" expand="full" color="dark" (click)="cancelNewItem()">Cancelar</ion-button>
   </div>
 
 </ion-content>

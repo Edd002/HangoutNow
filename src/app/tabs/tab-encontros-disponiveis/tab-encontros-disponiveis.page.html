@@ -9,19 +9,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
+<ion-content padding>
+  <div *ngIf="listScreen">
+    <ion-list>
+      <ion-item *ngFor="let item of items" (click)="viewItem(item)">{{item.title}}</ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="addItemScreen">
+    <div class="taskNameContainer">
+      <ion-label class="small-label">Nome do Encontro</ion-label>
+      <ion-input placeholder="O Nome do Seu Encontro" [(ngModel)]="taskName"></ion-input>
     </div>
-  -->
+
+    <div class="taskDetailsContainer">
+      <ion-label class="small-label">Detalhes do Encontro</ion-label>
+      <ion-textarea placeholder="Os Detalhes do Seu Encontro" [(ngModel)]="taskDetails"></ion-textarea>
+    </div>
+  </div>
 </ion-content>

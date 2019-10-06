@@ -1,39 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalEncontrosDisponiveisComponent } from '../modal-encontros-disponiveis/modal-encontros-disponiveis.component';
 
 @Component({
   selector: 'app-tab-encontros-disponiveis',
-  templateUrl: 'tab-encontros-disponiveis.page.html',
-  styleUrls: ['tab-encontros-disponiveis.page.scss']
+  templateUrl: './tab-encontros-disponiveis.page.html',
+  styleUrls: ['./tab-encontros-disponiveis.page.scss']
 })
 export class TabEncontrosDisponiveisPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Encontro ' + i,
-        note: 'Este é o ' + i + 'º Encontro',
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
-  }
+
+  public items;
+
+  listScreen = true;
+  addItemScreen = false;
+  taskName;
+  taskDetails;
+
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
+    this.items = [
+      { title: 'Encontro Disponível 1', description: 'Primerio Encontro Disponível Utilizando o HangoutNow' },
+      { title: 'Encontro Disponível 2', description: 'Segundo Encontro Disponível Utilizando o HangoutNow' },
+      { title: 'Encontro Disponível 3', description: 'Terceiro Encontro Disponível Utilizando o HangoutNow' }
+    ];
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+
+  async openModal(item) {
+    const modal = await this.modalController.create({
+      component: ModalEncontrosDisponiveisComponent,
+      componentProps: {
+        data: item.description
+      }
+    })
+    await modal.present();
+  }
+
+  viewItem(item) {
+    this.openModal(item);
+  }
 }

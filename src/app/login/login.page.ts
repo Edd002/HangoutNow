@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
+import { AppService } from '../app.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: 'login.page.html',
@@ -9,7 +11,7 @@ import { NavController } from '@ionic/angular';
 
 export class LoginPage {
 
-  constructor(private navCtrl: NavController) {
+  constructor(private navCtrl: NavController, private appService: AppService) {
   }
 
   goToRegistro() {
@@ -17,6 +19,7 @@ export class LoginPage {
   }
 
   goToHome() {
+    this.appService.loginState = true;
     this.navCtrl.navigateForward('/tab-home');
   }
 

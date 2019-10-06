@@ -14,43 +14,48 @@
 <ion-content>
   <ion-list lines="none">
     <ion-item>
-      <ion-label>Foto de Perfil</ion-label>
-      <ion-label>FOTO</ion-label>
+      <div>Foto de Perfil</div>
+      <ion-avatar slot="start">
+        <img src="/assets/images/avatar-rey.png">
+      </ion-avatar>
     </ion-item>
     <ion-item>
-      <ion-label>Usuário</ion-label>
-      <ion-label>PrimeiroNome ÚltimoNome</ion-label>
+      <ion-label position="stacked">Usuário</ion-label>
+      <ion-input disabled>PrimeiroNome ÚltimoNome</ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Senha</ion-label>
-      <ion-label>************</ion-label>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input disabled>************</ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>E-mail</ion-label>
-      <ion-label>email@email.com</ion-label>
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input disabled>email@email.com</ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Telefone</ion-label>
-      <ion-label>(99) 99999-9999</ion-label>
+      <ion-label position="stacked">Telefone</ion-label>
+      <ion-input disabled>(99) 99999-9999</ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Sexo</ion-label>
-      <ion-label>Masculino</ion-label>
+      <ion-label position="stacked">Sexo</ion-label>
+      <ion-select disabled>
+        <ion-select-option selected>Masculino</ion-select-option>
+        <ion-select-option>Feminino</ion-select-option>
+      </ion-select>
     </ion-item>
   </ion-list>
 
   <ion-list lines="none">
     <ion-item class="ion-item-clickable">
       <ion-icon slot="start" color="medium" name="contact"></ion-icon>
-      <ion-label>Foto de Perfil</ion-label>
+      <div>Alterar Foto de Perfil</div>
     </ion-item>
     <ion-item class="ion-item-clickable">
       <ion-icon slot="start" color="medium" name="construct"></ion-icon>
-      <ion-label>Alterar Dados</ion-label>
+      <div>Alterar Informações do Perfil</div>
     </ion-item>
     <ion-item class="ion-item-clickable" (click)="goToLogin()">
       <ion-icon slot="start" color="medium" name="log-out"></ion-icon>
-      <ion-label>Sair</ion-label>
+      <div>Sair</div>
     </ion-item>
   </ion-list>
 </ion-content>

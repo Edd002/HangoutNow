@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { EncontrosModalComponent } from '../encontros-modal/encontros-modal.component';
+import { ModalMeusEncontrosComponent } from '../modal-meus-encontros/modal-meus-encontros.component';
 
 @Component({
   selector: 'app-tab-meus-encontros',
@@ -14,15 +14,17 @@ export class TabMeusEncontrosPage implements OnInit {
   listScreen = true;
   addItemScreen = false;
   taskName;
+  taskTime;
+  taskDay;
   taskDetails;
 
   constructor(private modalController: ModalController) { }
 
   ngOnInit() {
     this.items = [
-      { title: 'Encontro 1', description: 'Encontro Criado por Mim, Local no Mapa e Grupo de Conversa do Encontro' },
-      { title: 'Encontro 2', description: 'Encontro Criado por Mim, Local no Mapa e Grupo de Conversa do Encontro' },
-      { title: 'Encontro 3', description: 'Encontro Criado por Mim, Local no Mapa e Grupo de Conversa do Encontro' }
+      { title: 'Meu Encontro 1', description: 'Meu Primeiro Encontro Utilizando no HangoutNow' },
+      { title: 'Meu Encontro 2', description: 'Meu Segundo Encontro Utilizando no HangoutNow' },
+      { title: 'Meu Encontro 3', description: 'Meu Terceiro Encontro Utilizando no HangoutNow' }
     ];
   }
 
@@ -38,9 +40,14 @@ export class TabMeusEncontrosPage implements OnInit {
     this.addItemScreen = false;
   }
 
+  cancelNewItem() {
+    this.listScreen = true;
+    this.addItemScreen = false;
+  }
+
   async openModal(item) {
     const modal = await this.modalController.create({
-      component: EncontrosModalComponent,
+      component: ModalMeusEncontrosComponent,
       componentProps: {
         data: item.description
       }

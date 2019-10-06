@@ -14,7 +14,10 @@ ion-item{
     margin:10px;
 }
 
-
- .sc-ion-modal-md-h{
+.sc-ion-modal-md-h{
     background: rgb(24,24,24) !important;
+}
+
+ion-list {
+    cursor: pointer !important;
 }
