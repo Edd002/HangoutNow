@@ -5,6 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppService } from './app.service';
+import { AuthService } from './auth-service/auth-service.service';
+
+import { LoginPage } from './login/login.page';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +15,8 @@ import { AppService } from './app.service';
 })
 
 export class AppComponent {
+  private auth: AuthService;
+
   public appPages = [
     {
       title: 'Home',
