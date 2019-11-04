@@ -25,10 +25,6 @@ export class RegistroPage {
     });
   }
 
-  goToLogin() {
-    this.navCtrl.navigateBack('/login');
-  }
-
   signup() {
     let data = this.form.value;
     let credentials = {
@@ -42,6 +38,10 @@ export class RegistroPage {
       () => this.navCtrl.navigateRoot('/tab-home'),
       error => this.signupError = error.message
     );
+  }
+
+  goToLogin() {
+    this.navCtrl.navigateBack('/login');
   }
 
   segmentChanged($event) {

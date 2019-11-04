@@ -11,13 +11,13 @@
 
 <ion-content>
   <form (ngSubmit)="login()" [formGroup]="loginForm">
-    <ion-list padding lines="none">
+    <ion-list class="ion-padding" lines="none">
       <ion-list-header>
         <h3>HangoutNow</h3>
       </ion-list-header>
 
       <ion-item>
-        <ion-label position="stacked">Usuário ou E-mail</ion-label>
+        <ion-label position="stacked">E-mail</ion-label>
         <ion-input type="text" placeholder="Informe o usuário ou o e-mail" formControlName="email"></ion-input>
       </ion-item>
 
@@ -26,7 +26,7 @@
         <ion-input type="password" placeholder="Informe a senha" formControlName="password"></ion-input>
       </ion-item>
 
-      <ion-button shape="round" expand="full" color="dark" (click)="goToHome()" type="submit" [disabled]="!loginForm.valid">
+      <ion-button shape="round" expand="full" color="dark" type="submit" [disabled]="!loginForm.valid">
         Login
       </ion-button>
       <ion-button shape="round" expand="full" color="dark" (click)="goToRegistro()">
@@ -34,7 +34,7 @@
       </ion-button>
     </ion-list>
 
-    <div padding-horizontal>
+    <div class="ion-padding-horizontal">
       <div class="form-error">{{loginError}}</div>
       <div class="login-footer">
         <p>

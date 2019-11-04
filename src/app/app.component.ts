@@ -7,8 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppService } from './app.service';
 import { AuthService } from './auth-service/auth-service.service';
 
-import { LoginPage } from './login/login.page';
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -55,7 +53,7 @@ export class AppComponent {
     }
   ];
 
-  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar, private appService: AppService) {
+  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar, private appService: AppService, private authService: AuthService) {
     this.initializeApp();
   }
 
@@ -69,4 +67,5 @@ export class AppComponent {
   hasLoggedIn() {
     return this.appService.loginState;
   }
+
 }

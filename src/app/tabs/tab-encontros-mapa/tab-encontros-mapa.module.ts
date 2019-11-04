@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
+import { GoogleMapComponent } from '../../google-map/google-map.component';
 
 import { TabEncontrosMapaPage } from './tab-encontros-mapa.page';
 
@@ -21,6 +22,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TabEncontrosMapaPage]
+  declarations: [
+    TabEncontrosMapaPage,
+    GoogleMapComponent
+  ]
 })
 export class TabEncontrosMapaPageModule {}

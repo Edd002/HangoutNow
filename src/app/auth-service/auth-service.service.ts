@@ -11,6 +11,10 @@ export class AuthService {
 
   private user: firebase.User;
 
+  get getUser() {
+    return this.user;
+  }
+
   constructor(public afAuth: AngularFireAuth) {
     afAuth.authState.subscribe(user => {
       this.user = user;

@@ -12,50 +12,52 @@
 </ion-header>
 
 <ion-content>
-  <ion-list lines="none">
-    <ion-item>
-      <div>Foto de Perfil</div>
-      <ion-avatar slot="start">
-        <img src="/assets/images/avatar-rey.png">
-      </ion-avatar>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Usuário</ion-label>
-      <ion-input disabled>PrimeiroNome ÚltimoNome</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Senha</ion-label>
-      <ion-input disabled>************</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">E-mail</ion-label>
-      <ion-input disabled>email@email.com</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Telefone</ion-label>
-      <ion-input disabled>(99) 99999-9999</ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Sexo</ion-label>
-      <ion-select disabled>
-        <ion-select-option selected>Masculino</ion-select-option>
-        <ion-select-option>Feminino</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+  <form (ngSubmit)="submit()" [formGroup]="form">
+    <ion-list lines="none">
+      <ion-item>
+        <div>Foto de Perfil</div>
+        <ion-avatar slot="start">
+          <img src="/assets/images/avatar-rey.png">
+        </ion-avatar>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Usuário</ion-label>
+        <ion-input formControlName="user"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Senha</ion-label>
+        <ion-input formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">E-mail</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Telefone</ion-label>
+        <ion-input formControlName="cellphone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Sexo</ion-label>
+        <ion-select formControlName="gender">
+          <ion-select-option selected>Masculino</ion-select-option>
+          <ion-select-option>Feminino</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
 
-  <ion-list lines="none">
-    <ion-item class="ion-item-clickable">
-      <ion-icon slot="start" color="medium" name="contact"></ion-icon>
-      <div>Alterar Foto de Perfil</div>
-    </ion-item>
-    <ion-item class="ion-item-clickable">
-      <ion-icon slot="start" color="medium" name="construct"></ion-icon>
-      <div>Alterar Informações do Perfil</div>
-    </ion-item>
-    <ion-item class="ion-item-clickable" (click)="goToLogin()">
-      <ion-icon slot="start" color="medium" name="log-out"></ion-icon>
-      <div>Sair</div>
-    </ion-item>
-  </ion-list>
+    <ion-list lines="none">
+      <ion-item class="ion-item-clickable" (click)="changePicture()">
+        <ion-icon slot="start" color="medium" name="contact"></ion-icon>
+        <div>Alterar Foto de Perfil</div>
+      </ion-item>
+      <ion-item class="ion-item-clickable" (click)="submit()">
+        <ion-icon slot="start" color="medium" name="construct"></ion-icon>
+        <div>Alterar Informações do Perfil</div>
+      </ion-item>
+      <ion-item class="ion-item-clickable" (click)="goToLogin()">
+        <ion-icon slot="start" color="medium" name="log-out"></ion-icon>
+        <div>Sair</div>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>

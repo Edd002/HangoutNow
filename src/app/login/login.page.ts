@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
-import { AppService } from '../app.service';
 import { AuthService } from '../auth-service/auth-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -15,7 +14,7 @@ export class LoginPage {
   loginForm: FormGroup;
   loginError: string;
 
-  constructor(private navCtrl: NavController, private appService: AppService, private auth: AuthService, private fb: FormBuilder) {
+  constructor(private navCtrl: NavController, private auth: AuthService, private fb: FormBuilder) {
     this.loginForm = fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
@@ -39,11 +38,6 @@ export class LoginPage {
 
   goToRegistro() {
     this.navCtrl.navigateForward('/registro');
-  }
-
-  goToHome() {
-    this.appService.loginState = true;
-    this.navCtrl.navigateForward('/tab-home');
   }
 
   segmentChanged($event) {

@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-split-pane>
+  <ion-split-pane contentId="main-content">
     <ion-menu *ngIf="hasLoggedIn()">
       <ion-header>
         <ion-toolbar>
@@ -20,6 +20,8 @@
       </ion-content>
     </ion-menu>
 
-    <ion-router-outlet main></ion-router-outlet>
+    <div id="main-content">
+      <ion-router-outlet main></ion-router-outlet>
+    </div>
   </ion-split-pane>
 </ion-app>
