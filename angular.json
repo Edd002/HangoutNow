@@ -40,7 +40,6 @@
               }
             ],
             "scripts": [
-              "src/assets/js/googlemapsapis.js"
             ],
             "es5BrowserSupport": true
           },

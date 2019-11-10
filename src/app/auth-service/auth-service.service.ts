@@ -11,30 +11,29 @@ export class AuthService {
 
   private user: firebase.User;
 
-  get getUser() {
-    return this.user;
-  }
-
   constructor(public afAuth: AngularFireAuth) {
     afAuth.authState.subscribe(user => {
       this.user = user;
     });
   }
 
-  signInWithEmail(credentials) {
-    console.log('Sign in with email');
+  get getUser() {
+    return this.user;
+  }
+
+  get authenticated(): boolean { return this.user !== null; }
+
+  signInWithEmail(credentials: any) {
     return this.afAuth.auth.signInWithEmailAndPassword(
       credentials.email,
       credentials.password
     );
   }
 
-  signUp(credentials) {
+  signUp(credentials: any) {
     return this.afAuth.auth.createUserWithEmailAndPassword(
       credentials.email, credentials.password);
   }
-
-  get authenticated(): boolean { return this.user !== null; }
 
   getEmail() {
     return this.user && this.user.email;
@@ -70,5 +69,4 @@ export class AuthService {
         });
     }
   }
-
 }

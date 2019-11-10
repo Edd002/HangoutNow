@@ -27,7 +27,7 @@ export class TabPerfilPage {
   }
 
   ionViewWillEnter() {
-    console.log(this.authService.getUser);
+    // Recuperar usuário aqui
 
     this.form.setValue({
       user: 'user',
