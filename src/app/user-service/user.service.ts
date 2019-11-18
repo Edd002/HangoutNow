@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { User } from './user.model'
 
 @Injectable({
@@ -13,29 +13,47 @@ export class UserService {
   constructor(public firestore: AngularFirestore) {
   }
 
-  registerUser(user: User): Promise<void> {
-    this.user = user;
-
-    let id = this.firestore.createId();
-    let userFirestore = {
-      "id": id,
-      "userName": user.userName,
-      "userPassword": user.userPassword, 
-      "userEmail": user.userEmail,
-      "userCellphone": user.userCellphone,
-      "userGender": user.userGender,
-      "date": new Date().toISOString()
+  registerUser(credentials: any): Promise<void> {
+    let userFirebase: User = {
+      id: this.firestore.createId(),
+      userName: credentials.user,
+      userPassword: credentials.password,
+      userEmail: credentials.email,
+      userCellphone: credentials.cellphone,
+      userGender: credentials.gender,
+      userProfilePath: null,
+      userListAlreadyContacted: null,
+      userTime: 0,
+      userDate: new Date().toISOString()
     }
 
-    return this.firestore.doc(`userProfile/${id}`).set(userFirestore);
+    this.setFirebaseUser(userFirebase);
+    return this.firestore.doc(`userProfile/${userFirebase.id}`).set(Object.assign({}, userFirebase));
   }
 
   loadUser(userEmail: string) {
-    // Buscar usuário do banco e carregar na variável do serviço
+    let userFirestore: AngularFirestoreCollection<User>;
+    userFirestore = this.firestore.collection<User>('userProfile', ref => ref.where('userEmail', '==', userEmail));
 
-    let userFirestore: any;
-    userFirestore = this.firestore.collection<any>('userProfile', ref => ref.where('userEmail', '==', userEmail));
+    userFirestore.valueChanges().subscribe(
+      object => {
+        object.forEach(userFirebase => this.setFirebaseUser(userFirebase))
+      }
+    );
+  }
 
-    console.log(userFirestore.ref);
+  setFirebaseUser(userFirebase: User) {
+    this.user = {
+      id: userFirebase.id,
+      userName: userFirebase.userName,
+      userPassword: userFirebase.userPassword,
+      userEmail: userFirebase.userEmail,
+      userCellphone: userFirebase.userCellphone,
+      userGender: userFirebase.userGender,
+      userProfilePath: userFirebase.userProfilePath,
+      userListAlreadyContacted: userFirebase.userListAlreadyContacted,
+      userTime: userFirebase.userTime,
+      userDate: userFirebase.userDate
+    }
   }
 }

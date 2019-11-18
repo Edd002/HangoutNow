@@ -31,8 +31,7 @@ export class AuthService {
   }
 
   signUp(credentials: any) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(
-      credentials.email, credentials.password);
+    return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
   }
 
   getEmail() {
@@ -44,9 +43,7 @@ export class AuthService {
   }
 
   signInWithGoogle(): Promise<any> {
-    console.log('Sign in with google');
-    return this.oauthSignIn(new firebase.auth.GoogleAuthProvider(
-    ));
+    return this.oauthSignIn(new firebase.auth.GoogleAuthProvider());
   }
 
   private oauthSignIn(provider: AuthProvider) {

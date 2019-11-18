@@ -8,7 +8,9 @@ export const firebaseConfig = {
         messagingSenderId: "202534494707",
         appId: "1:202534494707:web:580df96de2b76440857286",
         measurementId: "G-RMCDBSGX0B"
-    }
+    }, 
+    users_endpoint: "userProfile",
+    chats_endpoint: "chats"
 };
 
 /*

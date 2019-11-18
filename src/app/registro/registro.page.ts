@@ -3,7 +3,6 @@ import { NavController } from '@ionic/angular';
 
 import { AuthService } from '../auth-service/auth-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { User } from '../user-service/user.model';
 import { UserService } from '../user-service/user.service';
 
 @Component({
@@ -44,14 +43,7 @@ export class RegistroPage {
   }
 
   loadHomeAndRegisterUser(credentials: any) {
-    let user: User = new User();
-    user.userName = credentials.user;
-    user.userPassword = credentials.password;
-    user.userEmail = credentials.email;
-    user.userCellphone = credentials.cellphone;
-    user.userGender = credentials.gender;
-
-    this.userService.registerUser(user);
+    this.userService.registerUser(credentials);
     this.navCtrl.navigateRoot('/tab-home');
     alert("Cadastro Realizado");
   }

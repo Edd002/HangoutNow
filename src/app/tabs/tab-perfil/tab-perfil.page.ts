@@ -3,6 +3,8 @@ import { NavController } from '@ionic/angular';
 
 import { AppService } from '../../app.service';
 import { AuthService } from '../../auth-service/auth-service.service';
+import { UserService } from '../../user-service/user.service';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -15,33 +17,32 @@ export class TabPerfilPage {
   updateError: string;
   form: FormGroup;
 
-  constructor(private navCtrl: NavController, private appService: AppService, private authService: AuthService, private fb: FormBuilder) {
+  constructor(private navCtrl: NavController, private appService: AppService, private authService: AuthService, private fb: FormBuilder, private userService: UserService) {
     this.form = fb.group({
-      user: ['', { disabled: false }, Validators.compose([Validators.required])],
-      password: ['', { disabled: false }, Validators.compose([Validators.required, Validators.minLength(6)])],
-      confirmPassword: ['', { disabled: false }, Validators.compose([Validators.required, Validators.minLength(6)])],
-      email: ['', { disabled: false }, Validators.compose([Validators.required, Validators.email])],
-      cellphone: ['', { disabled: false }, Validators.compose([Validators.required])],
-      gender: ['', { disabled: false }, Validators.compose([Validators.required])]
+      user: ['', { disabled: true }, Validators.compose([Validators.required])],
+      password: ['', { disabled: true }, Validators.compose([Validators.required, Validators.minLength(6)])],
+      confirmPassword: ['', { disabled: true }, Validators.compose([Validators.required, Validators.minLength(6)])],
+      email: ['', { disabled: true }, Validators.compose([Validators.required, Validators.email])],
+      cellphone: ['', { disabled: true }, Validators.compose([Validators.required])],
+      gender: ['', { disabled: true }, Validators.compose([Validators.required])]
     });
   }
 
   ionViewWillEnter() {
-    // Recuperar usuário aqui
-
     this.form.setValue({
-      user: 'user',
-      password: 'pass',
-      confirmPassword: 'pass',
-      email: 'email',
-      cellphone: 'cellphone',
-      gender: 'Masculino'
+      user: this.userService.user.userName,
+      password: this.userService.user.userPassword,
+      confirmPassword: this.userService.user.userPassword,
+      email: this.userService.user.userEmail,
+      cellphone: this.userService.user.userCellphone,
+      gender: this.userService.user.userGender
     });
   }
 
   goToLogin() {
     this.authService.signOut();
     this.appService.loginState = false;
+    this.userService.user = null;
     this.navCtrl.navigateBack('/login');
   }
 
