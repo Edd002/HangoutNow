@@ -1,23 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
     </ion-buttons>
+
     <ion-title>
-      Conversar com Amigos
+      {{ name }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-list class="messages">
-    <ion-item class="chat-message">
+    <ion-item class="chat-message" *ngFor="let mensagem of mensagens">
       <ion-card>
         <ion-card-header>
           PrimeiroNome ÚltimoNome
         </ion-card-header>
         <ion-card-content>
-          <p>Chat de Mensagem</p>
+          <p>Chat de Mensagem: {{ mensagem }}</p>
         </ion-card-content>
       </ion-card>
     </ion-item>
@@ -40,12 +43,15 @@
     <ion-item class="message-input">
       <div class="messageWindow">
         <ion-label position="stacked">Mensagem: </ion-label>
-        <ion-input></ion-input>
+        <ion-input type="text" [(ngModel)]="msg"></ion-input>
       </div>
     </ion-item>
 
     <div class="messageSend">
-      <ion-button shape="round" color="dark" expand="block">Enviar</ion-button>
+      <ion-button shape="round" color="dark" expand="block" (click)="sendMessage()">
+        Enviar
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
     </div>
   </ion-row>
 </ion-content>

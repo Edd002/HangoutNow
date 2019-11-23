@@ -18,13 +18,21 @@ export class TabPerfilPage {
   form: FormGroup;
 
   constructor(private navCtrl: NavController, private appService: AppService, private authService: AuthService, private fb: FormBuilder, private userService: UserService) {
+
+    /*
+    form = new FormGroup({
+      first: new FormControl({value: 'Nancy', disabled: true}, Validators.required),
+      last: new FormControl('Drew', Validators.required)
+    });
+    */
+
     this.form = fb.group({
-      user: ['', { disabled: true }, Validators.compose([Validators.required])],
-      password: ['', { disabled: true }, Validators.compose([Validators.required, Validators.minLength(6)])],
-      confirmPassword: ['', { disabled: true }, Validators.compose([Validators.required, Validators.minLength(6)])],
-      email: ['', { disabled: true }, Validators.compose([Validators.required, Validators.email])],
-      cellphone: ['', { disabled: true }, Validators.compose([Validators.required])],
-      gender: ['', { disabled: true }, Validators.compose([Validators.required])]
+      user: [{ value: '',  disabled: true }, Validators.compose([Validators.required])],
+      password: [{ value: '',  disabled: true }, Validators.compose([Validators.required, Validators.minLength(6)])],
+      confirmPassword: [{ value: '',  disabled: true }, Validators.compose([Validators.required, Validators.minLength(6)])],
+      email: [{ value: '',  disabled: true }, Validators.compose([Validators.required, Validators.email])],
+      cellphone: [{ value: '',  disabled: true }, Validators.compose([Validators.required])],
+      gender: [{ value: '',  disabled: true }, Validators.compose([Validators.required])]
     });
   }
 

@@ -1,0 +1,46 @@
+/*
+.messages{
+}
+
+.chat-message{
+}
+*/
+
+.your-chats {
+    float: right;
+    right: 0px;
+}
+
+.your-chat-message {
+    background-color: rgb(49, 96, 248) !important;
+}
+
+.messagebox {
+    position: fixed !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    float: center !important;
+    padding: none !important;
+}
+
+.messageWindow {
+    position: fixed !important;
+    left: 5px !important;
+}
+
+ion-input {
+    width: 400px !important;
+}
+
+.messageSend {
+    position: fixed !important;
+    right: 0px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+ion-button ion-icon {
+    position: relative !important;
+    top: -4px !important;
+    margin-left: 6px !important;
+  }

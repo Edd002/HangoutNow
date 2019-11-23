@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChatRoomPage } from './chat-room.page';
+import { ModalChatComponent } from './modal-chat.component';
 
-describe('ChatRoomPage', () => {
-  let component: ChatRoomPage;
-  let fixture: ComponentFixture<ChatRoomPage>;
+describe('ModalChatComponent', () => {
+  let component: ModalChatComponent;
+  let fixture: ComponentFixture<ModalChatComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChatRoomPage ],
+      declarations: [ ModalChatComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChatRoomPage);
+    fixture = TestBed.createComponent(ModalChatComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
