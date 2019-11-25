@@ -4,7 +4,6 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { AppService } from './app.service';
 import { AuthService } from './auth-service/auth-service.service';
 
 @Component({
@@ -13,8 +12,6 @@ import { AuthService } from './auth-service/auth-service.service';
 })
 
 export class AppComponent {
-  private auth: AuthService;
-
   public appPages = [
     {
       title: 'Home',
@@ -53,7 +50,7 @@ export class AppComponent {
     }
   ];
 
-  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar, private appService: AppService, private authService: AuthService) {
+  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar, private authService: AuthService) {
     this.initializeApp();
   }
 
@@ -65,7 +62,6 @@ export class AppComponent {
   }
 
   hasLoggedIn() {
-    return this.appService.loginState;
+    return this.authService.userProfile !== null && this.authService.userProfile !== undefined;;
   }
-
 }

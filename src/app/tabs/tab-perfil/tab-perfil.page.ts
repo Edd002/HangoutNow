@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 
-import { AppService } from '../../app.service';
 import { AuthService } from '../../auth-service/auth-service.service';
-import { UserService } from '../../user-service/user.service';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -17,15 +15,7 @@ export class TabPerfilPage {
   updateError: string;
   form: FormGroup;
 
-  constructor(private navCtrl: NavController, private appService: AppService, private authService: AuthService, private fb: FormBuilder, private userService: UserService) {
-
-    /*
-    form = new FormGroup({
-      first: new FormControl({value: 'Nancy', disabled: true}, Validators.required),
-      last: new FormControl('Drew', Validators.required)
-    });
-    */
-
+  constructor(private navCtrl: NavController, private authService: AuthService, private fb: FormBuilder, private alertController: AlertController) {
     this.form = fb.group({
       user: [{ value: '',  disabled: true }, Validators.compose([Validators.required])],
       password: [{ value: '',  disabled: true }, Validators.compose([Validators.required, Validators.minLength(6)])],
@@ -38,20 +28,25 @@ export class TabPerfilPage {
 
   ionViewWillEnter() {
     this.form.setValue({
-      user: this.userService.user.userName,
-      password: this.userService.user.userPassword,
-      confirmPassword: this.userService.user.userPassword,
-      email: this.userService.user.userEmail,
-      cellphone: this.userService.user.userCellphone,
-      gender: this.userService.user.userGender
+      user: this.authService.userProfile.name,
+      password: this.authService.userProfile.password,
+      confirmPassword: this.authService.userProfile.password,
+      email: this.authService.userProfile.email,
+      cellphone: this.authService.userProfile.cellphone,
+      gender: this.authService.userProfile.gender
     });
   }
 
-  goToLogin() {
+  async goToLogin() {
     this.authService.signOut();
-    this.appService.loginState = false;
-    this.userService.user = null;
     this.navCtrl.navigateBack('/login');
+    const alert = await this.alertController.create({
+      header: 'Logoff',
+      subHeader: '',
+      message: 'Logoff realizado.',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 
   submit() {

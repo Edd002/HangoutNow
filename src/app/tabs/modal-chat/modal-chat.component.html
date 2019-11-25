@@ -7,20 +7,20 @@
     </ion-buttons>
 
     <ion-title>
-      {{ name }}
+      {{ chat.name }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list class="messages">
-    <ion-item class="chat-message" *ngFor="let mensagem of mensagens">
+  <ion-list class="messages" *ngIf="room">
+    <ion-item class="chat-message" *ngFor="let mensagem of room.messages">
       <ion-card>
         <ion-card-header>
           PrimeiroNome ÚltimoNome
         </ion-card-header>
         <ion-card-content>
-          <p>Chat de Mensagem: {{ mensagem }}</p>
+          <p>Chat de Mensagem: {{ mensagem.content }}</p>
         </ion-card-content>
       </ion-card>
     </ion-item>

@@ -3,7 +3,6 @@ import { NavController, AlertController } from '@ionic/angular';
 
 import { AuthService } from '../auth-service/auth-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../user-service/user.service';
 
 @Component({
   selector: 'app-registro',
@@ -15,9 +14,9 @@ export class RegistroPage {
   signupError: string;
   form: FormGroup;
 
-  constructor(private navCtrl: NavController, private auth: AuthService, private fb: FormBuilder, public userService: UserService, private alertController: AlertController) {
+  constructor(private navCtrl: NavController, private auth: AuthService, private fb: FormBuilder, private alertController: AlertController) {
     this.form = fb.group({
-      user: ['', Validators.compose([Validators.required])],
+      name: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       email: ['', Validators.compose([Validators.required, Validators.email])],
@@ -29,7 +28,7 @@ export class RegistroPage {
   signup() {
     let data = this.form.value;
     let credentials = {
-      user: data.user,
+      name: data.name,
       password: data.password,
       email: data.email,
       cellphone: data.cellphone,
@@ -37,15 +36,13 @@ export class RegistroPage {
     };
 
     this.auth.signUp(credentials).then(
-      () => this.loadHomeAndRegisterUser(credentials),
+      () => this.loadHome(),
       error => this.signupError = error.message
     );
   }
 
-  async loadHomeAndRegisterUser(credentials: any) {
-    this.userService.registerUser(credentials);
+  async loadHome() {
     this.navCtrl.navigateRoot('/tab-home');
-
     const alert = await this.alertController.create({
       header: 'Cadastro',
       subHeader: '',

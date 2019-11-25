@@ -14,8 +14,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppService } from './app.service';
 import { AuthService } from './auth-service/auth-service.service';
+import { ChatService } from './chat-service/chat.service';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../config';
@@ -50,9 +50,9 @@ import { FormsModule } from '@angular/forms';
   providers: [
     StatusBar,
     SplashScreen,
-    AppService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AuthService,
+    ChatService,
     AngularFireAuth,
     { provide: FirestoreSettingsToken, useValue: {} }
   ],

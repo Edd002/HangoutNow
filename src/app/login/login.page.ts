@@ -3,7 +3,6 @@ import { NavController, AlertController } from '@ionic/angular';
 
 import { AuthService } from '../auth-service/auth-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../user-service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,7 @@ export class LoginPage {
   loginForm: FormGroup;
   loginError: string;
 
-  constructor(private navCtrl: NavController, private auth: AuthService, private fb: FormBuilder, public userService: UserService, private alertController: AlertController) {
+  constructor(private navCtrl: NavController, private auth: AuthService, private fb: FormBuilder, private alertController: AlertController) {
     this.loginForm = fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
@@ -32,15 +31,13 @@ export class LoginPage {
       password: data.password
     };
     this.auth.signInWithEmail(credentials).then(
-      () => this.loadHomeAndLoadUser(credentials.email),
+      () => this.loadHome(),
       error => this.loginError = error.message
     );
   }
 
-  async loadHomeAndLoadUser(userEmail: string) {
-    this.userService.loadUser(userEmail);
+  async loadHome() {
     this.navCtrl.navigateRoot('/tab-home');
-
     const alert = await this.alertController.create({
       header: 'Login',
       subHeader: '',

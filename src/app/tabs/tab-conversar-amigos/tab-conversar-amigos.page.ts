@@ -32,7 +32,7 @@ export class TabConversarAmigosPage implements OnInit {
     this.modal.create({
       component: ModalChatComponent,
       componentProps: {
-        name: chat.name
+        chat: chat
       }
     }).then( (modal) => modal.present());
 

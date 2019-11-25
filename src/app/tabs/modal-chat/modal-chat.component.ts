@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
+import { Message } from "../../chat-service/message.model";
+import { ChatService } from "../../chat-service/chat.service";
 
 @Component({
   selector: 'app-modal-chat',
@@ -8,17 +10,29 @@ import { ModalController, NavParams } from '@ionic/angular';
 })
 export class ModalChatComponent implements OnInit {
 
-  // https://youtu.be/GFuxpbZpnww?t=389
+  // https://www.youtube.com/watch?v=ikMrTQvw8MQ
 
-  public name: string;
+  public chat: any;
+  public message: Message;
 
   public mensagens = [];
+
+  public room: any;
+
   public msg: string;
 
-  constructor(private modalController: ModalController, private navParams: NavParams) { }
+  constructor(private modalController: ModalController,
+    private navParams: NavParams,
+    private chatService: ChatService) { }
 
   ngOnInit() {
-    this.name = this.navParams.get('name');
+    this.chatService.getChatRoom(this.chat.id).subscribe(
+      room => {
+        //console.log(room);
+        this.room = room;
+      });
+
+    this.chat = this.navParams.get('chat');
   }
 
   async close() {
@@ -26,7 +40,13 @@ export class ModalChatComponent implements OnInit {
   }
 
   sendMessage() {
-    this.mensagens.push(this.msg);
+    const message: Message = {
+      content: this.msg,
+      type: 'text',
+      date: new Date()
+    }
+
+    this.chatService.sendMsgToFirebase(message, this.chat.id);
     this.msg = "";
   }
 

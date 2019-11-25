@@ -12,9 +12,15 @@
 <ion-content>
   <form (ngSubmit)="login()" [formGroup]="loginForm">
     <ion-list class="ion-padding" lines="none">
-      <ion-list-header>
-        <h3>HangoutNow</h3>
-      </ion-list-header>
+      
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>HangoutNow</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-img src="/assets/images/hangout.png"></ion-img>
+        </ion-card-content>
+      </ion-card>
 
       <ion-item>
         <ion-label position="stacked">E-mail</ion-label>
