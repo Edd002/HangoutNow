@@ -1,5 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { google } from 'google-maps';
+import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LoadingController } from '@ionic/angular';
+
+declare var google: any;
 
 @Component({
   selector: 'google-map',
@@ -7,25 +11,59 @@ import { google } from 'google-maps';
   styleUrls: ['./google-map.component.scss'],
 })
 export class GoogleMapComponent implements OnInit {
+  mapRef = null;
 
-  @ViewChild('map') mapElement: any;
-  map: any;
-  google: google;
+  constructor(
+    private alertController: AlertController,
+    private geolocation: Geolocation,
+    private loadCtrl: LoadingController) { }
 
-  constructor() { }
-  
   ngOnInit() {
-    this.initMap();
+    this.loadMap();
   }
 
-  initMap() {
-    let coords = new google.maps.LatLng(45, 100);
-    let mapOptions: google.maps.MapOptions = {
-      center: coords,
-      zoom: 14,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
+  async loadMap() {
+    const loading = await this.loadCtrl.create();
+    loading.present();
 
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    const myLatLng = await this.getLocation();
+    const mapEle: HTMLElement = document.getElementById('map');
+
+    this.mapRef = new google.maps.Map(mapEle, {
+      center: myLatLng,
+      zoom: 12
+    });
+    google.maps.event.addListenerOnce(this.mapRef, 'idle', () => {
+      loading.dismiss();
+      this.addMarker(myLatLng.lat, myLatLng.lng);
+    });
+  }
+
+  private addMarker(lat: number, lng: number) {
+    const marker = new google.maps.Marker({
+      position: {lat, lng },
+      zoom: 8,
+      map: this.mapRef,
+      title: 'Marker'
+    });
+  }
+
+  private async getLocation() {
+    const rta = await this.geolocation.getCurrentPosition();
+    return {
+      lat: rta.coords.latitude,
+      lng: rta.coords.longitude
+    }
+    //console.log(myLatLng);
+  }
+
+  async atualizarMapa() {
+    const alert = await this.alertController.create({
+      header: 'Entros no Mapa',
+      subHeader: '',
+      message: 'Mapa atualizado.',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 }
