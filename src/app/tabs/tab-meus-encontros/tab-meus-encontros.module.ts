@@ -21,6 +21,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TabMeusEncontrosPage]
+  declarations: [
+    TabMeusEncontrosPage
+  ]
 })
 export class TabMeusEncontrosPageModule {}

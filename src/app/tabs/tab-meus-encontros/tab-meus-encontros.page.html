@@ -26,7 +26,7 @@
   <div *ngIf="addItemScreen">
     <div class="taskNameContainer">
       <div class="small-label">Nome do Encontro</div>
-      <ion-input placeholder="O nome do seu encontro" [(ngModel)]="taskName"></ion-input>
+      <ion-input placeholder="O nome do seu encontro" [(ngModel)]="nomeEncontro"></ion-input>
     </div>
 
     <ion-button shape="round" expand="full" color="dark">Selecione uma Imagem</ion-button>
@@ -34,7 +34,7 @@
 
     <div class="taskTimeContainer">
       <div class="small-label">Horário do Encontro</div>
-      <ion-input placeholder="O horário do seu encontro" [(ngModel)]="taskTime"></ion-input>
+      <ion-input placeholder="O horário do seu encontro" [(ngModel)]="horaEncontro"></ion-input>
     </div>
 
     <div class="taskDayContainer">
@@ -44,7 +44,7 @@
 
     <div class="taskDetailsContainer">
       <div class="small-label">Detalhes do Encontro</div>
-      <ion-textarea placeholder="Os detalhes do seu encontro" [(ngModel)]="taskDetails"></ion-textarea>
+      <ion-textarea placeholder="Os detalhes do seu encontro" [(ngModel)]="detalhesEncontro"></ion-textarea>
     </div>
 
     <ion-list>

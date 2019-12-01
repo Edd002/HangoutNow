@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, AlertController } from '@ionic/angular';
 import { ModalMeusEncontrosComponent } from '../modal-meus-encontros/modal-meus-encontros.component';
+
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-tab-meus-encontros',
@@ -13,12 +15,14 @@ export class TabMeusEncontrosPage implements OnInit {
 
   listScreen = true;
   addItemScreen = false;
-  taskName;
-  taskTime;
-  taskDay;
-  taskDetails;
 
-  constructor(private modalController: ModalController) { }
+  nomeEncontro: any= null;
+  horaEncontro: any = null;
+  diaEncontro: any = null;
+  detalhesEncontro: any = null;
+  privadoEncontro: boolean = null;
+
+  constructor(private modalController: ModalController, public db: AngularFirestore,  private alertController: AlertController) { }
 
   ngOnInit() {
     this.items = [
@@ -33,9 +37,32 @@ export class TabMeusEncontrosPage implements OnInit {
     this.addItemScreen = true;
   }
 
-  // -- CONTINUAR -- ENVIAR UMAR MENSSAGEM DE ITEM SALVADO COM SUCESSO
+  salvarEnconroFirestore() {
+    const id: string = this.db.createId();
+    let encontro = {
+      "nome": this.nomeEncontro,
+      "hora": this.horaEncontro,
+      "dia": this.diaEncontro,
+      "detalhes": this.detalhesEncontro,
+      "private": this.privadoEncontro
+    }
+
+    this.db.collection('encontro').doc(id).set(encontro).then(res => this.modalSucesso());
+  }
+
+  async modalSucesso () {
+    const alert = await this.alertController.create({
+      header: 'Encontro Salvo',
+      subHeader: '',
+      message: 'Encontro registrado.',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
   saveNewItem() {
-    this.items.push({ title: this.taskName, description: this.taskDetails });
+    this.salvarEnconroFirestore();
+    this.items.push({ title: this.nomeEncontro, description: this.detalhesEncontro });
     //return to normal screens
     this.listScreen = true;
     this.addItemScreen = false;

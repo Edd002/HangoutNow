@@ -19,7 +19,9 @@ import { LoginPage } from './login.page';
       }
     ])
   ],
-  declarations: [LoginPage]
+  declarations: [
+    LoginPage
+  ]
 })
 
 export class LoginPageModule {
