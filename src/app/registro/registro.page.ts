@@ -46,7 +46,7 @@ export class RegistroPage {
     const alert = await this.alertController.create({
       header: 'Cadastro',
       subHeader: '',
-      message: 'Cadastro Realizado',
+      message: 'Cadastro realizado.',
       buttons: ['OK']
     });
     await alert.present();

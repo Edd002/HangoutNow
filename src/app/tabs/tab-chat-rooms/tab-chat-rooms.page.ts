@@ -6,11 +6,11 @@ import { Chat } from './../../chat-service/chat.model';
 import { ModalChatComponent } from './../modal-chat/modal-chat.component';
 
 @Component({
-  selector: 'app-tab-conversar-amigos',
-  templateUrl: './tab-conversar-amigos.page.html',
-  styleUrls: ['./tab-conversar-amigos.page.scss'],
+  selector: 'app-tab-chat-rooms',
+  templateUrl: './tab-chat-rooms.page.html',
+  styleUrls: ['./tab-chat-rooms.page.scss'],
 })
-export class TabConversarAmigosPage implements OnInit {
+export class TabChatRoomsPage implements OnInit {
 
   public chatRooms: any = [];
 

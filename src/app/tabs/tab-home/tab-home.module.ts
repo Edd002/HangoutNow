@@ -21,41 +21,4 @@ import { TabHomePage } from './tab-home.page';
   declarations: [TabHomePage]
 })
 export class TabHomePageModule {
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/tab-home',
-      icon: 'home'
-    },
-    {
-      title: 'Meus Encontros',
-      url: '/tab-meus-encontros',
-      icon: 'list-box'
-    },
-    {
-      title: 'Encontros Disponíveis',
-      url: '/tab-encontros-disponiveis',
-      icon: 'list'
-    },
-    {
-      title: 'Encontros Confirmados',
-      url: '/tab-encontros-confirmados',
-      icon: 'checkbox-outline'
-    },
-    {
-      title: 'Encontros no Mapa',
-      url: '/tab-encontros-mapa',
-      icon: 'map'
-    },
-    {
-      title: 'Conversar com Amigos',
-      url: '/tab-conversar-amigos',
-      icon: 'chatboxes'
-    },
-    {
-      title: 'Perfil',
-      url: '/tab-perfil',
-      icon: 'person'
-    }
-  ];
 }

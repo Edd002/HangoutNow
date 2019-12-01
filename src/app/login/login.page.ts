@@ -41,7 +41,7 @@ export class LoginPage {
     const alert = await this.alertController.create({
       header: 'Login',
       subHeader: '',
-      message: 'Login Realizado',
+      message: 'Login realizado.',
       buttons: ['OK']
     });
     await alert.present();

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { Message } from "../../chat-service/message.model";
 import { ChatService } from "../../chat-service/chat.service";
+import { AuthService } from 'src/app/auth-service/auth-service.service';
+import { User } from 'src/app/auth-service/user.model';
 
 @Component({
   selector: 'app-modal-chat',
@@ -10,20 +12,18 @@ import { ChatService } from "../../chat-service/chat.service";
 })
 export class ModalChatComponent implements OnInit {
 
-  // https://www.youtube.com/watch?v=ikMrTQvw8MQ
-
   public chat: any;
   public message: Message;
 
   public mensagens = [];
-
   public room: any;
-
   public msg: string;
 
-  constructor(private modalController: ModalController,
+  constructor(
+    private modalController: ModalController,
     private navParams: NavParams,
-    private chatService: ChatService) { }
+    private chatService: ChatService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.chatService.getChatRoom(this.chat.id).subscribe(
@@ -40,7 +40,24 @@ export class ModalChatComponent implements OnInit {
   }
 
   sendMessage() {
+    let userMessage: User = null;
+    if (this.authService.userProfile !== null && this.authService.userProfile !== undefined) {
+      userMessage = this.authService.userProfile;
+    } else {
+      userMessage = {
+        uid: "0",
+        name: "Anonymous",
+        password: null,
+        email: null,
+        cellphone: null,
+        gender: null,
+        imagePathProfile: null,
+        date: new Date().toString()
+      }
+    }
+
     const message: Message = {
+      user: userMessage,
       content: this.msg,
       type: 'text',
       date: new Date()

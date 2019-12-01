@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabConversarAmigosPage } from './tab-conversar-amigos.page';
+import { TabChatRoomsPage } from './tab-chat-rooms.page';
 
-describe('TabConversarAmigosPage', () => {
-  let component: TabConversarAmigosPage;
-  let fixture: ComponentFixture<TabConversarAmigosPage>;
+describe('TabChatRoomsPage', () => {
+  let component: TabChatRoomsPage;
+  let fixture: ComponentFixture<TabChatRoomsPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TabConversarAmigosPage ],
+      declarations: [ TabChatRoomsPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TabConversarAmigosPage);
+    fixture = TestBed.createComponent(TabChatRoomsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

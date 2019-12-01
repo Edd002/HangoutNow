@@ -6,6 +6,10 @@
 }
 */
 
+.ion-padding {
+    padding: none !important;
+}
+
 .your-chats {
     float: right;
     right: 0px;
@@ -16,6 +20,7 @@
 }
 
 .messagebox {
+    margin-left: 20px !important;
     position: fixed !important;
     bottom: 10px !important;
     left: 10px !important;
@@ -24,8 +29,13 @@
 }
 
 .messageWindow {
+    margin-left: 20px !important;
     position: fixed !important;
     left: 5px !important;
+}
+
+.messageWindow ion-input {
+    width: 70% !important;
 }
 
 ion-input {

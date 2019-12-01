@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'tab-encontros-disponiveis', loadChildren: './tabs/tab-encontros-disponiveis/tab-encontros-disponiveis.module#TabEncontrosDisponiveisPageModule' },
   { path: 'tab-encontros-confirmados', loadChildren: './tabs/tab-encontros-confirmados/tab-encontros-confirmados.module#TabEncontrosConfirmadosPageModule' },
   { path: 'tab-encontros-mapa', loadChildren: './tabs/tab-encontros-mapa/tab-encontros-mapa.module#TabEncontrosMapaPageModule' },
-  { path: 'tab-conversar-amigos', loadChildren: './tabs/tab-conversar-amigos/tab-conversar-amigos.module#TabConversarAmigosPageModule' },
+  { path: 'tab-chat-rooms', loadChildren: './tabs/tab-chat-rooms/tab-chat-rooms.module#TabChatRoomsPageModule' },
   { path: 'tab-perfil', loadChildren: './tabs/tab-perfil/tab-perfil.module#TabPerfilPageModule'}
 ];
 

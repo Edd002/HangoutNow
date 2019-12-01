@@ -33,6 +33,7 @@ export class TabMeusEncontrosPage implements OnInit {
     this.addItemScreen = true;
   }
 
+  // -- CONTINUAR -- ENVIAR UMAR MENSSAGEM DE ITEM SALVADO COM SUCESSO
   saveNewItem() {
     this.items.push({ title: this.taskName, description: this.taskDetails });
     //return to normal screens

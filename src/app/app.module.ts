@@ -25,6 +25,8 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from 'angularfire2/fir
 
 import { FormsModule } from '@angular/forms';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +56,7 @@ import { FormsModule } from '@angular/forms';
     AuthService,
     ChatService,
     AngularFireAuth,
+    Geolocation,
     { provide: FirestoreSettingsToken, useValue: {} }
   ],
   bootstrap: [AppComponent]

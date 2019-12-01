@@ -39,8 +39,8 @@ export class AppComponent {
       icon: 'navigate'
     },
     {
-      title: 'Conversar com Amigos',
-      url: '/tab-conversar-amigos',
+      title: 'Salas de Chat',
+      url: '/tab-chat-rooms',
       icon: 'chatboxes'
     },
     {

@@ -17,14 +17,15 @@
     <ion-item class="chat-message" *ngFor="let mensagem of room.messages">
       <ion-card>
         <ion-card-header>
-          PrimeiroNome ÚltimoNome
+          <b>{{ mensagem.user.name }}</b>
         </ion-card-header>
         <ion-card-content>
-          <p>Chat de Mensagem: {{ mensagem.content }}</p>
+          <p>{{ mensagem.content }}</p>
         </ion-card-content>
       </ion-card>
     </ion-item>
 
+    <!--
     <div class="your-chats">
       <ion-item>
         <ion-card class="your-chat-message">
@@ -37,6 +38,7 @@
         </ion-card>
       </ion-item>
     </div>
+    -->
   </ion-list>
 
   <ion-row class="messagebox">
